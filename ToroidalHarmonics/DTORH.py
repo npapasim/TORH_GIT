@@ -3,6 +3,7 @@
 
 import ctypes as ct
 import numpy as np
+import scipy.special as sps
 
 class DTORH:
     class NewNTooSmall(Exception): pass# new N is too small in dtorh1
@@ -82,7 +83,20 @@ class DTORH:
     # second for m indices
     # third for zRange values
     # nCount means I will consider indices n=0...(nCount-1)
-    def GetCubeNMZ(self, nCount, mCount, zRange, mode=0):
+    # Folding means that the values for n and m larger than nCount/2 and mCount/2
+    # will be folded back onto them-selves like in DFT
+    # scale_fold include the aditional scaling for negative m PQs
+    def GetCubeNMZ(self, nCountFull, mCountFull, zRange, mode=0, folding=False, scale_fold=True):
+        # if we are folding there is no need to compute all values
+        if folding:
+            nCount=np.floor(nCountFull/2).astype(int)+1
+            mCount = np.floor(mCountFull / 2).astype(int)+1
+        else:
+            nCount=nCountFull
+            mCount=mCountFull
+
+        #########  basic compute
+
         # allocate memory
         PCube = np.zeros( (nCount, mCount, len(zRange)), dtype=np.double )
         QCube = np.zeros( (nCount, mCount, len(zRange)), dtype=np.double )
@@ -125,5 +139,49 @@ class DTORH:
             PCube[:, :, iZ] = pVec.reshape((nCount+1, mCount+1))[0:-1, 0:-1]  # now it is [N,M] array
             QCube[:, :, iZ] = qVec.reshape((nCount+1, mCount+1))[0:-1, 0:-1]  # now it is [N,M] array
 
-        return PCube, QCube
+        #### sort out folding
+        if not folding:
+            return PCube, QCube
+        else:
+            PCubeFull = np.zeros( (nCountFull, mCountFull, len(zRange)), dtype=np.double )
+            QCubeFull = np.zeros( (nCountFull, mCountFull, len(zRange)), dtype=np.double )
+
+            # n,m normal
+            PCubeFull[0:nCount, 0:mCount, :] = PCube
+            QCubeFull[0:nCount, 0:mCount, :] = QCube
+
+            if scale_fold:
+                # I need scaling it is easier to do it for all terms
+                m_range = np.arange(0, mCount)
+                n_range = np.arange(0, nCount)
+                n_cube, m_cube, _ = np.meshgrid(n_range, m_range, zRange, indexing='ij')
+                fold_prefactor_cube = ((-1) ** (mCountFull - m_cube)) * \
+                                      sps.gamma(n_cube - ((mCountFull - m_cube)) + 1 / 2) / \
+                                      sps.gamma(n_cube + ((mCountFull - m_cube)) + 1 / 2)
+
+            else:
+                fold_prefactor_cube = np.ones(PCube.shape, dtype=np.double)
+
+            prefac_PCube = fold_prefactor_cube * PCube
+            prefac_QCube = fold_prefactor_cube * QCube
+
+            # fold on m
+            if np.mod(mCountFull, 2) == 0:  # even n
+                PCubeFull[0:nCount, mCount:, :] = prefac_PCube[0:nCount, np.arange(mCount - 2, 0, -1), :]
+                QCubeFull[0:nCount, mCount:, :] = prefac_QCube[0:nCount, np.arange(mCount - 2, 0, -1), :]
+            else:
+                PCubeFull[0:nCount, mCount:, :] = prefac_PCube[0:nCount, np.arange(mCount - 1, 0, -1), :]
+                QCubeFull[0:nCount, mCount:, :] = prefac_QCube[0:nCount, np.arange(mCount - 1, 0, -1), :]
+
+            # mirror in n
+            if np.mod(nCountFull,2)==0:# even n
+                PCubeFull[nCount:, :, :] = PCubeFull[np.arange(nCount-2, 0, -1), :, :]
+                QCubeFull[nCount:, :, :] = QCubeFull[np.arange(nCount - 2, 0, -1), :, :]
+            else:
+                PCubeFull[nCount:, :, :] = PCubeFull[np.arange(nCount - 1, 0, -1), :, :]
+                QCubeFull[nCount:, :, :] = QCubeFull[np.arange(nCount - 1, 0, -1), :, :]
+
+            return PCubeFull, QCubeFull
+
+
 

@@ -1,0 +1,1972 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{hyperref}
+
+\usepackage{mathtools}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+%\date{}
+
+\renewcommand{\vec}{\boldsymbol}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Toroidal Harmonics Definition for the DARPA project 
+\end_layout
+
+\begin_layout Section
+Defnition of toroidal Harmonics
+\end_layout
+
+\begin_layout Standard
+Several work from plasma physics consider toroidal harmonics.
+ Works by Garapati 
+\emph on
+et al.
+
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Garapati17,Garapati18"
+literal "true"
+
+\end_inset
+
+ suggest defining the general solution to the Laplace equations as:
+\begin_inset Formula 
+\begin{gather*}
+\Phi=f\left(\mu,\,\eta\right)\sum_{n,m=-\infty}^{\infty}\left[C_{mn}P_{n-\frac{1}{2}}^{m}\left(\cosh\mu\right)+D_{mn}Q_{n-\frac{1}{2}}^{m}\left(\cosh\mu\right)\right]\exp\left(in\theta\right)\exp\left(im\phi\right)\\
+f\left(\mu,\,\eta\right)=\sqrt{\cosh\mu-\cos\eta}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Sign of 
+\begin_inset Formula $n,\,m$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+From DLMF
+\begin_inset space ~
+\end_inset
+
+14.9.3 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DLMF"
+literal "false"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{\nu}^{-m}=\left(-1\right)^{m}\,\frac{\Gamma\left(\nu-m+1\right)}{\Gamma\left(\nu+m+1\right)}\,\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{\nu}^{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that here 
+\begin_inset Formula $\nu\in\mathbb{R}$
+\end_inset
+
+, so it applies for our case.
+ Mathematica confirms this for our functions.
+ It follows that for 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $-m$
+\end_inset
+
+ the 
+\begin_inset Formula $P\&Q$
+\end_inset
+
+ are essentially equal up to standard normalization factor.
+ In our case:
+\begin_inset Formula 
+\begin{equation}
+\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{n-\frac{1}{2}}^{-m}=\left(-1\right)^{m}\,\frac{\Gamma\left(n-\frac{1}{2}-m+1\right)}{\Gamma\left(n-\frac{1}{2}+m+1\right)}\,\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{n-\frac{1}{2}}^{m}=\left(-1\right)^{m}\,\frac{\Gamma\left(n-m+\frac{1}{2}\right)}{\Gamma\left(n+m+\frac{1}{2}\right)}\,\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{n-\frac{1}{2}}^{m}\label{eq:NegativeM}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From DLMF
+\begin_inset space ~
+\end_inset
+
+14.9.5 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "DLMF"
+literal "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{-\nu-1}^{\mu}=P_{\nu}^{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It follows that:
+\begin_inset Formula 
+\[
+P_{-n-\frac{1}{2}}^{m}=P_{-\left(n-\frac{1}{2}\right)-1}^{m}=P_{n-\frac{1}{2}}^{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mathematica agrees.
+ 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $Q$
+\end_inset
+
+ we have DLMF
+\begin_inset space ~
+\end_inset
+
+14.9.6:
+\begin_inset Formula 
+\begin{gather*}
+\pi\cos\left(\nu\pi\right)\cos\left(\mu\pi\right)P_{\nu}^{\mu}=\sin\left(\left(\nu+\mu\right)\pi\right)Q_{\nu}^{\mu}-\sin\left(\left(\nu-\mu\right)\pi\right)Q_{-\nu-1}^{\mu}\\
+\pi\cos\left(\left(n-\frac{1}{2}\right)\pi\right)\cos\left(m\pi\right)P_{n-\frac{1}{2}}^{m}=\sin\left(\left(n+m-\frac{1}{2}\right)\pi\right)Q_{n-\frac{1}{2}}^{m}-\sin\left(\left(n-m-\frac{1}{2}\right)\pi\right)Q_{-n-\frac{1}{2}}^{m}\\
+0=\left(-1\right)^{n+m-1}Q_{n-\frac{1}{2}}^{m}-\left(-1\right)^{n-m-1}Q_{-n-\frac{1}{2}}^{m}\\
+Q_{-n-\frac{1}{2}}^{m}=\left(-1\right)^{2m}Q_{n-\frac{1}{2}}^{m}=Q_{n-\frac{1}{2}}^{m}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again, Mathematica agrees.
+ So:
+\begin_inset Formula 
+\begin{equation}
+\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{-n-\frac{1}{2}}^{m}=\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{n-\frac{1}{2}}^{m}\label{eq:NegativeN}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note also that by definition, 
+\begin_inset Formula $P\&Q$
+\end_inset
+
+ are solutions of:
+\begin_inset Formula 
+\[
+\left(1-x^{2}\right)\frac{d^{2}P}{dx^{2}}-2x\frac{dP}{dx}+\nu\left(\nu+1\right)P=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which in the case of 
+\begin_inset Formula $\nu=n-\frac{1}{2}$
+\end_inset
+
+ becomes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(1-x^{2}\right)\frac{d^{2}P_{n-\frac{1}{2}}^{m}}{dx^{2}}-2x\frac{dP_{n-\frac{1}{2}}^{m}}{dx}+\left(n^{2}+\frac{1}{4}\right)P_{n-\frac{1}{2}}^{m}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus the sign of 
+\begin_inset Formula $n$
+\end_inset
+
+ is arbitrary, it does not change the equation.
+\end_layout
+
+\begin_layout Subsection
+Definition
+\end_layout
+
+\begin_layout Standard
+It makes sense to define toroidal harmonics as:
+\begin_inset Formula 
+\begin{equation}
+\Psi_{nm}^{\left(1,2\right)}\left(\eta,\,\theta,\,\phi\right)=\left\{ \begin{array}{c}
+\Psi\\
+\Phi
+\end{array}\right\} _{nm}\left(\eta,\,\theta,\,\phi\right)=\sqrt{\cosh\eta-\cos\theta}\left\{ \begin{array}{c}
+P\\
+Q
+\end{array}\right\} _{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)\,\exp\left(in\theta\right)\,\exp\left(im\phi\right)\label{eq:TorHarmDef}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where:
+\begin_inset Formula 
+\begin{alignat*}{2}
+0 & \le\eta< & \infty\\
+-\pi & <\theta\le & \pi\\
+0 & \le\phi< & 2\pi\\
+ & m,n=0,\pm1,\pm2,\dots
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NegativeM"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NegativeN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) to change sign.
+\end_layout
+
+\begin_layout Section
+Decomposition of a scalar function
+\end_layout
+
+\begin_layout Standard
+Given an arbitrary scalar function 
+\begin_inset Formula $f=f\left(\vec{r}\right)$
+\end_inset
+
+, how do we write it as in terms of toroidal harmonics?
+\begin_inset Formula 
+\begin{gather*}
+f\left(\vec{r}\right)=\sum_{n'm'}a_{n'm'}^{\left(1\right)}\Psi_{n'm'}^{\left(1\right)}\left(\vec{r}\right)+\sum_{n''m''}a_{n''m''}^{\left(2\right)}\Psi_{n''m''}^{\left(2\right)}\left(\vec{r}\right)\\
+\frac{1}{2\pi}\int_{0}^{2\pi}d\phi\exp\left(-im\phi\right)f\left(\vec{r}\left(\phi\right)\right)=\sqrt{\cosh\eta-\cos\theta}\sum_{n'}\exp\left(in'\theta\right)\left(a_{n'm}^{\left(1\right)}P_{n'-\frac{1}{2}}^{m}\left(\cosh\eta\right)+a_{n'm}^{\left(2\right)}Q_{n'-\frac{1}{2}}^{m}\left(\cosh\eta\right)\right)\\
+\frac{1}{2\pi}\int_{-\pi}^{\pi}\frac{d\theta\exp\left(-in\theta\right)}{\sqrt{\cosh\eta-\cos\theta}}\cdot\frac{1}{2\pi}\int_{0}^{2\pi}d\phi\exp\left(-im\phi\right)f\left(\vec{r}\left(\phi\right)\right)=a_{nm}^{\left(1\right)}P_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)+a_{nm}^{\left(2\right)}Q_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)\\
+\frac{1}{\left(2\pi\right)^{2}}\int_{-\pi}^{\pi}d\theta\int_{0}^{2\pi}d\phi\,\frac{\exp\left(-i\left(n\theta+m\phi\right)\right)}{\sqrt{\cosh\eta-\cos\theta}}\cdot f\left(\eta,\,\theta,\,\phi\right)=a_{nm}^{\left(1\right)}P_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)+a_{nm}^{\left(2\right)}Q_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define:
+\begin_inset Formula 
+\[
+\bar{f}=\frac{f\left(\eta,\,\theta,\,\phi\right)}{\sqrt{\cosh\eta-\cos\theta}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let 
+\begin_inset Formula $\phi_{s}=\frac{2\pi}{M}\cdot s$
+\end_inset
+
+, for 
+\begin_inset Formula $s=0\dots M-1$
+\end_inset
+
+ and 
+\begin_inset Formula $\theta_{r}=\frac{2\pi}{N}\cdot r-\pi$
+\end_inset
+
+, for 
+\begin_inset Formula $r=0\dots N-1$
+\end_inset
+
+.
+ One question I have is whether 
+\begin_inset Formula $nm$
+\end_inset
+
+ coefficients can be only non-negative.
+ As one can see from Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NegativeM"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NegativeN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) the values of 
+\begin_inset Formula $P\&Q$
+\end_inset
+
+ for negative parameters are not linearly independent.
+ So it makes no sense to treat them as additional degrees of freedom.
+ I therefore suggest to compute 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ as follows:
+\begin_inset Formula 
+\begin{flalign*}
+P_{n-\frac{1}{2}}^{m}= & \begin{cases}
+P_{n-\frac{1}{2}}^{m}, & \text{for\,}m\le\left\lfloor \frac{M}{2}\right\rfloor +1,\:n\le\left\lfloor \frac{N}{2}\right\rfloor +1\\
+P_{\left(N-n\right)-\frac{1}{2}}^{m} & \text{for\,}m\le\left\lfloor \frac{M}{2}\right\rfloor +1,\:n>\left\lfloor \frac{N}{2}\right\rfloor +1\\
+\left(-1\right)^{\left(M-m\right)}\,\frac{\Gamma\left(n-\left(M-m\right)+\frac{1}{2}\right)}{\Gamma\left(n+\left(M-m\right)+\frac{1}{2}\right)}P_{n-\frac{1}{2}}^{M-m}, & \text{for\,}m>\left\lfloor \frac{M}{2}\right\rfloor +1,\:n\le\left\lfloor \frac{N}{2}\right\rfloor +1\\
+\left(-1\right)^{\left(M-m\right)}\,\frac{\Gamma\left(n-\left(M-m\right)+\frac{1}{2}\right)}{\Gamma\left(n+\left(M-m\right)+\frac{1}{2}\right)}P_{\left(N-n\right)-\frac{1}{2}}^{M-m}, & \text{for\,}m>\left\lfloor \frac{M}{2}\right\rfloor +1,\:n>\left\lfloor \frac{N}{2}\right\rfloor +1
+\end{cases}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With this I can restrict myself to just the positive values of 
+\begin_inset Formula $n=0,\,1,\,\dots N-1$
+\end_inset
+
+ and 
+\begin_inset Formula $m=0,\dots M-1$
+\end_inset
+
+.
+ The way it will be handeled in code is by definition of an additional folding
+ function.
+ 
+\end_layout
+
+\begin_layout Standard
+Moving on, and converting the integrals to sums:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{flalign*}
+a_{nm}^{\left(1\right)}P_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)+a_{nm}^{\left(2\right)}Q_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)= & \frac{1}{\left(2\pi\right)^{2}}\int_{-\pi}^{\pi}d\theta\int_{0}^{2\pi}d\phi\,\exp\left(-i\left(n\theta+m\phi\right)\right)\cdot\bar{f}\left(\theta,\,\phi;\,\eta\right)\\
+= & \frac{1}{2\pi}\sum_{r}^{N-1}\frac{2\pi}{N}\cdot\frac{1}{2\pi}\sum_{s}^{M-1}\frac{2\pi}{M}\cdot\exp\left(-i2\pi\left(\frac{n\cdot r}{N}+\frac{m\cdot s}{M}\right)\right)\cdot\exp\left(-in\left(-\pi\right)\right)\cdot\bar{f}_{r,s}\left(\eta\right)\\
+= & \frac{\left(-1\right)^{n}}{N\cdot M}\cdot\sum_{r=0}^{N-1}\sum_{s=0}^{M-1}\exp\left(-i2\pi\left(\frac{n\cdot r}{N}+\frac{m\cdot s}{M}\right)\right)\cdot\bar{f}_{r,s}\left(\eta\right)
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is the 2D DFT of the 
+\begin_inset Formula $\bar{f}_{r,s}\left(\eta\right)=\bar{f}\left(\theta_{r},\,\phi_{s};\,\eta\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+a_{nm}^{\left(1\right)}P_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)+a_{nm}^{\left(2\right)}Q_{n-\frac{1}{2}}^{m}\left(\cosh\eta\right)=\frac{\left(-1\right)^{n}}{N\cdot M}\cdot DFT\left(r\to n,N,s\to m,M\right)\left\{ \bar{f}_{r,s}\left(\eta\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So need few steps of 
+\begin_inset Formula $\eta$
+\end_inset
+
+ with an good grid of 
+\begin_inset Formula $\theta,\,\phi$
+\end_inset
+
+ for each step.
+ Then use DFT to get the 
+\begin_inset Formula $nm$
+\end_inset
+
+ coefficients.
+ 
+\end_layout
+
+\begin_layout Standard
+Assume we did this.
+ So now for each 
+\begin_inset Formula $nm$
+\end_inset
+
+ we have several values of 
+\begin_inset Formula $\eta=\eta_{1}\dots\eta_{K}$
+\end_inset
+
+ and we need to get 
+\begin_inset Formula $a^{\left(1,2\right)}$
+\end_inset
+
+.
+ One can write it as:
+\begin_inset Formula 
+\begin{gather*}
+\left(\begin{array}{cc}
+P_{1} & Q_{1}\\
+P_{2} & Q_{2}\\
+\vdots & \vdots\\
+P_{K} & Q_{K}
+\end{array}\right)\left(\begin{array}{c}
+a^{\left(1\right)}\\
+a^{\left(2\right)}
+\end{array}\right)=\left(\begin{array}{c}
+V_{1}\\
+V_{2}\\
+\vdots\\
+V_{K}
+\end{array}\right)\\
+\vec{A}\left(\begin{array}{c}
+a^{\left(1\right)}\\
+a^{\left(2\right)}
+\end{array}\right)=\vec{V}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+One should assume that 
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{Q}$
+\end_inset
+
+ are linearly independent.
+ 
+\begin_inset Formula $\left(\vec{P}\,\vec{Q}\right)\left(\begin{array}{c}
+a^{\left(1\right)}\\
+a^{\left(2\right)}
+\end{array}\right)$
+\end_inset
+
+ is a linear combination of these two vectors.
+ The best thing we can do is to project vector 
+\begin_inset Formula $\vec{V}$
+\end_inset
+
+ into the subspace spanned by 
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{Q}$
+\end_inset
+
+ .
+ Invariably, this will involve multyplying by 
+\begin_inset Formula $\vec{A}^{\dagger}=\left(\begin{array}{c}
+\vec{P}^{\dagger}\\
+\vec{Q}^{\dagger}
+\end{array}\right)$
+\end_inset
+
+.
+ Let
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Bear in mind that 
+\begin_inset Formula $\vec{P}$
+\end_inset
+
+ and 
+\begin_inset Formula $\vec{Q}$
+\end_inset
+
+ are real-valued
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\vec{H}=\vec{A}^{\dagger}\vec{A}=\left(\begin{array}{cc}
+\vec{P}^{\dagger}.\vec{P} & \vec{P}^{\dagger}.\vec{Q}\\
+\vec{Q}^{\dagger}.\vec{P} & \vec{Q}^{\dagger}.\vec{Q}
+\end{array}\right)=\left(\begin{array}{cc}
+d_{1} & h\\
+h^{\dagger} & d_{2}
+\end{array}\right)=\left(\begin{array}{cc}
+d_{1} & h\\
+h & d_{2}
+\end{array}\right),\quad\vec{W}=\vec{A}^{\dagger}\vec{V}=\left(\begin{array}{c}
+\vec{P}^{\dagger}\vec{V}\\
+\vec{Q}^{\dagger}\vec{V}
+\end{array}\right)=\left(\begin{array}{c}
+W_{1}\\
+W_{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then:
+\begin_inset Formula 
+\begin{gather*}
+\vec{H}\left(\begin{array}{c}
+a^{\left(1\right)}\\
+a^{\left(2\right)}
+\end{array}\right)=\vec{W}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which we can solve for 
+\begin_inset Formula $a^{\left(1,2\right)}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{flalign*}
+\left(\begin{array}{c}
+a^{\left(1\right)}\\
+a^{\left(2\right)}
+\end{array}\right)\approx & \frac{1}{d_{1}d_{2}-h^{2}}\left(\begin{array}{cc}
+d_{2} & -h\\
+-h & d_{1}
+\end{array}\right)\left(\begin{array}{c}
+W_{1}\\
+W_{2}
+\end{array}\right)\\
+a^{\left(1\right)}\approx & \frac{d_{2}W_{1}-hW_{2}}{d_{1}d_{2}-h^{2}}\\
+a^{\left(2\right)}\approx & \frac{d_{1}W_{2}-hW_{1}}{d_{1}d_{2}-h^{2}}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Decomposition of the vector field
+\end_layout
+
+\begin_layout Subsection
+Basic arguments
+\end_layout
+
+\begin_layout Standard
+Any sensible 3d vector field can be decomposed into
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+See `HelmholtzDecomposition.pdf' in scanned notes
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\vec{F}=\vec{\nabla}\phi+\vec{L}\psi+\vec{\nabla}\times\vec{L}\zeta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\phi,\,\psi,\,\zeta$
+\end_inset
+
+ are scalar functions and 
+\begin_inset Formula $\vec{L}=-i\vec{r}\times\vec{\nabla}$
+\end_inset
+
+ is the angular momentum operator.
+ Key to this decomposition is that the first part is that two latter terms
+ have no divergence, so:
+\begin_inset Formula 
+\[
+\vec{\nabla}.\vec{F}=\nabla^{2}\phi
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, the problem with simply decomposing 
+\begin_inset Formula $\phi$
+\end_inset
+
+ in terms of toroidal harmonics is that all toroidal harmonics are solutions
+ to Laplace's Equation, so the devergence would still vanish.
+ A reasonable way to overcome it, IMHO, is to create longitudinal component
+ with a radius:
+\begin_inset Formula 
+\[
+\vec{F}=\vec{r}\phi+\vec{L}\psi+\vec{\nabla}\times\vec{L}\zeta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This set should provide enough linear independence for the generic decomposition.
+ So the decomposition we are looking for is (with Einstein summation convention)
+:
+\begin_inset Formula 
+\[
+\vec{F}=a_{nm}^{\left(\lambda\right)}\cdot\vec{r}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)+b_{nm}^{\left(\lambda\right)}\cdot\vec{L}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)+c_{nm}^{\left(\lambda\right)}\cdot\vec{\nabla}\times\vec{L}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Bearing in mind that 
+\begin_inset Formula $\nabla^{2}\Psi_{nm}^{\left(\lambda\right)}=0$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{flalign*}
+\vec{\nabla}.\vec{F}= & a_{nm}^{\left(\lambda\right)}\cdot\left(3+\vec{r}.\vec{\nabla}\right)\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\\
+\vec{r}.\vec{F}= & a_{nm}^{\left(\lambda\right)}\cdot r^{2}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)+c_{nm}^{\left(\lambda\right)}\cdot\vec{r}.\vec{\nabla}\times\vec{L}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)=\\
+= & a_{nm}^{\left(\lambda\right)}\cdot r^{2}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)+c_{nm}^{\left(\lambda\right)}\cdot i\left(2\vec{r}.\vec{\nabla}+r^{\alpha}r^{\beta}\partial_{\alpha\beta}-r^{2}\nabla^{2}\right)\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\\
+= & a_{nm}^{\left(\lambda\right)}\cdot r^{2}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)+c_{nm}^{\left(\lambda\right)}\cdot i\left(2\vec{r}.\vec{\nabla}+r^{\alpha}r^{\beta}\partial_{\alpha\beta}\right)\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\\
+\vec{L}.\vec{F}= & b_{nm}^{\left(\lambda\right)}\cdot L^{2}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)=b_{nm}^{\left(\lambda\right)}\cdot\left(\partial_{r}\left(r^{2}\partial_{r}\dots\right)-r^{2}\nabla^{2}\right)\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\\
+= & b_{nm}^{\left(\lambda\right)}\cdot\partial_{r}\left(r^{2}\partial_{r}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\right)=b_{nm}^{\left(\lambda\right)}\cdot\left(2r\partial_{r}\Psi_{nm}^{\left(\lambda\right)}+r^{2}\partial_{rr}\Psi_{nm}^{\left(\lambda\right)}\right)\\
+= & b_{nm}^{\left(\lambda\right)}\cdot\left(\vec{\hat{r}}.\vec{\nabla}\right)\left(r\cdot\left(\vec{r}.\vec{\nabla}\right)\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\right)
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is, in principle enough for the decomposition.
+ So what I need is:
+\begin_inset Formula 
+\begin{gather}
+\left(3+\vec{r}.\vec{\nabla}\right)\Psi_{nm}^{\left(\lambda\right)}=A_{nm,\bar{n}\bar{m}}^{\left(\lambda,\,\bar{\lambda}\right)}\Psi_{\bar{n}\bar{m}}^{\left(\bar{\lambda}\right)}\label{eq:Need1}\\
+r^{2}\Psi_{nm}^{\left(\lambda\right)}=B_{nm,\bar{n}\bar{m}}^{\left(\lambda,\,\bar{\lambda}\right)}\Psi_{\bar{n}\bar{m}}^{\left(\bar{\lambda}\right)}\label{eq:Need2}\\
+\left(2\vec{r}.\vec{\nabla}+r_{\alpha}r_{\beta}\partial_{\alpha\beta}\right)\Psi_{nm}^{\left(\lambda\right)}=C_{nm,\bar{n}\bar{m}}^{\left(\lambda,\,\bar{\lambda}\right)}\Psi_{\bar{n}\bar{m}}^{\left(\bar{\lambda}\right)}\label{eq:Need3}\\
+\vec{\hat{r}}.\vec{\nabla}\left(r\,\vec{r}.\vec{\nabla}\Psi_{nm}^{\left(\lambda\right)}\right)=D_{nm,\bar{n}\bar{m}}^{\left(\lambda,\,\bar{\lambda}\right)}\Psi_{\bar{n}\bar{m}}^{\left(\bar{\lambda}\right)}\label{eq:Need4}
+\end{gather}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Covariant treatment
+\end_layout
+
+\begin_layout Standard
+The problem with the previous section is that I will need to work exclusively
+ in toroidal coordinates, and I feel slightly worried about some of the
+ expressions above.
+ The stuff on the left-hand side is coordinate independent, so it is ok.
+ The right-handside is coordinate dependent.
+ Something could be missed, so let us re-do it explicitly covariantly.
+ Assuming flat Eucledian space, there exitst the Cartesian coordinates 
+\begin_inset Formula $S$
+\end_inset
+
+ and some other coordinate system 
+\begin_inset Formula $\bar{S}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Position vector
+\end_layout
+
+\begin_layout Standard
+We will need to use the position vector.
+ It can be defined as:
+\begin_inset Formula 
+\[
+\vec{r}=\vec{\hat{e}}_{\alpha}r^{\alpha}=\vec{\hat{e}}_{\alpha}g^{\alpha\beta}\nabla_{\beta}\left(\frac{r^{2}}{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Cartesian coordinates.
+ This definition is then readily convertable to other coordinate systems:
+\begin_inset Formula 
+\begin{flalign}
+\bar{r}^{\alpha}= & \frac{\partial\bar{x}^{\alpha}}{\partial x^{\beta}}\cdot r^{\beta}=\frac{\partial\bar{x}^{\alpha}}{\partial x^{\beta}}\cdot g^{\alpha\beta}\nabla_{\beta}\left(\frac{r^{2}}{2}\right)\nonumber \\
+= & \bar{g}^{\alpha\beta}\bar{\nabla}_{\beta}\left(\frac{r^{2}}{2}\right)=\bar{g}^{\alpha\beta}\bar{\partial}_{\beta}\left(\frac{r^{2}}{2}\right)\nonumber \\
+= & r\cdot\bar{g}^{\alpha\beta}\bar{\partial}_{\beta}r\label{eq:rDef}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $r=r\left(\vec{r}\right)$
+\end_inset
+
+ is a position-dependent scalar, and so is 
+\begin_inset Formula $r^{2}=r\cdot r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Term 
+\begin_inset Formula $\vec{\nabla}.\vec{F}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have
+\begin_inset Formula 
+\begin{flalign*}
+\vec{\nabla}.\vec{F}= & \nabla_{\alpha}F^{\alpha}=\bar{\nabla}_{\alpha}\bar{F}^{\alpha}=\bar{\partial}_{\alpha}\bar{F}^{\alpha}+\bar{\Gamma}_{\alpha\mu}^{\alpha}\bar{F}^{\mu}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "LovelockBook"
+literal "false"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\bar{\Gamma}_{\alpha\mu}^{\alpha}=\frac{\bar{\partial}_{\mu}\sqrt{\bar{g}}}{\sqrt{\bar{g}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\bar{g}$
+\end_inset
+
+ is the determinant of the metric, we get: 
+\begin_inset Formula 
+\begin{flalign*}
+\vec{\nabla}.\vec{F}= & \bar{\partial}_{\alpha}\bar{F}^{\alpha}+\bar{\Gamma}_{\alpha\mu}^{\alpha}\bar{F}^{\mu}=\bar{\partial}_{\alpha}\bar{F}^{\alpha}+\frac{1}{\sqrt{\bar{g}}}\bar{F}^{\mu}\bar{\partial}_{\mu}\sqrt{\bar{g}}\\
+= & \frac{1}{\sqrt{\bar{g}}}\cdot\bar{\partial}_{\alpha}\left(\sqrt{\bar{g}}\cdot\bar{F}^{\alpha}\right)
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+the curl and angular-momentum components will vanish irrespective of coordinate
+ system, so we get (using Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rDef"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+)):
+\begin_inset Formula 
+\begin{flalign}
+\vec{\nabla}.\vec{F}= & a_{nm}^{\left(\lambda\right)}\vec{\nabla}.\left(\vec{r}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\right)=\frac{a_{nm}^{\left(\lambda\right)}}{\sqrt{\bar{g}}}\cdot\bar{\partial}_{\alpha}\left(\sqrt{\bar{g}}\cdot\bar{r}^{\alpha}\Psi_{nm}^{\left(\lambda\right)}\right)\nonumber \\
+= & \frac{a_{nm}^{\left(\lambda\right)}}{\sqrt{\bar{g}}}\cdot\bar{\partial}_{\alpha}\left(\Psi_{nm}^{\left(\lambda\right)}\cdot\bar{g}^{\alpha\beta}\sqrt{\bar{g}}\bar{\partial}_{\beta}\left(\frac{r^{2}}{2}\right)\right)\nonumber \\
+\vec{\nabla}.\vec{F}= & a_{nm}^{\left(\lambda\right)}\cdot\bar{g}^{\alpha\beta}\bar{\partial}_{\beta}\left(\frac{r^{2}}{2}\right)\cdot\left(\bar{\partial}_{\alpha}\Psi_{nm}^{\left(\lambda\right)}\right)+a_{nm}^{\left(\lambda\right)}\cdot\frac{1}{\sqrt{\bar{g}}}\bar{\partial}_{\alpha}\left(\bar{g}^{\alpha\beta}\sqrt{\bar{g}}\bar{\partial}_{\beta}\left(\frac{r^{2}}{2}\right)\right)\cdot\Psi_{nm}^{\left(\lambda\right)}\label{eq:GenDelDotF}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Toroidal coordinates and vector basis
+\end_layout
+
+\begin_layout Subsubsection
+Basics
+\end_layout
+
+\begin_layout Standard
+To get the matricies from Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Need1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Need4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), I will probably need to find analytical expressions for the relevant
+ left-hand sides, then numerically decompose them into right-hand side.
+ It makes sense to start with the simplest one: 
+\begin_inset Formula $r^{2}\Psi_{nm}^{\left(\lambda\right)}$
+\end_inset
+
+.
+ From Spencer 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "FieldThBook"
+literal "false"
+
+\end_inset
+
+ the toroidal coordinates in terms of Cartesian ones are:
+\begin_inset Formula 
+\begin{flalign*}
+x= & \frac{a\,\sinh\eta\,\cos\phi}{\cosh\eta-\cos\theta}\\
+y= & \frac{a\,\sinh\eta\,\sin\phi}{\cosh\eta-\cos\theta}\\
+z= & \frac{a\,\sin\theta}{\cosh\eta-\cos\theta}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Metric and basis vectors
+\end_layout
+
+\begin_layout Standard
+We have:
+\begin_inset Formula 
+\begin{gather*}
+dx^{2}+dy^{2}+dz^{2}=\frac{a^{2}}{\left(\cosh\eta-\cos\theta\right)^{2}}\cdot d\eta^{2}+\frac{a^{2}}{\left(\cosh\eta-\cos\theta\right)^{2}}\cdot d\theta^{2}+\frac{a^{2}\sinh^{2}\eta}{\left(\cosh\eta-\cos\theta\right)^{2}}\cdot d\phi^{2}\\
+\vec{e}_{\eta}.\vec{e}_{\eta}=\frac{a^{2}}{\left(\cosh\eta-\cos\theta\right)^{2}}\\
+\vec{e}_{\theta}.\vec{e}_{\theta}=\frac{a^{2}}{\left(\cosh\eta-\cos\theta\right)^{2}}\\
+\vec{e}_{\phi}.\vec{e}_{\phi}=\frac{a^{2}\sinh^{2}\eta}{\left(\cosh\eta-\cos\theta\right)^{2}}\\
+\vec{e}_{\eta}.\vec{e}_{\theta}=\vec{e}_{\eta}.\vec{e}_{\phi}=\vec{e}_{\theta}.\vec{e}_{\phi}=0\\
+d\vec{r}=d\eta\,\vec{e}_{\eta}+d\theta\,\vec{e}_{\theta}+d\phi\,\vec{e}_{\phi}
+\end{gather*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is also convenient to define normalized basis:
+\begin_inset Formula 
+\begin{flalign*}
+\vec{\hat{\eta}}= & \frac{\cosh\eta-\cos\theta}{a}\cdot\vec{e}_{\eta}\\
+\vec{\hat{\theta}}= & \frac{\cosh\eta-\cos\theta}{a}\cdot\vec{e}_{\theta}\\
+\vec{\hat{\phi}}= & \frac{\cosh\eta-\cos\theta}{a\sinh\eta}\cdot\vec{e}_{\phi}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So then:
+\begin_inset Formula 
+\[
+d\vec{r}=\frac{a}{\cosh\eta-\cos\theta}d\eta\,\vec{\hat{\eta}}+\frac{a}{\cosh\eta-\cos\theta}d\theta\,\vec{\hat{\theta}}+\frac{a\sinh\eta}{\cosh\eta-\cos\theta}d\phi\,\vec{\hat{\phi}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The metric is and related things are:
+\begin_inset Formula 
+\begin{flalign}
+\bar{g}_{\alpha\beta}= & \frac{a^{2}}{\left(\cosh\eta-\cos\theta\right)^{2}}\cdot\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & \sinh^{2}\eta
+\end{array}\right)_{\alpha\beta}\label{eq:TorMetric}\\
+\bar{g}= & \text{det}\left(\bar{g}_{\alpha\beta}\right)=\frac{a^{6}\sinh^{2}\eta}{\left(\cosh\eta-\cos\theta\right)^{6}}\label{eq:TorMetDeterminant}\\
+\sqrt{\bar{g}}= & \frac{a^{3}\sinh\eta}{\left(\cosh\eta-\cos\theta\right)^{3}}\label{eq:TorMetSqrt}\\
+\bar{g}^{\alpha\beta}= & \frac{\left(\cosh\eta-\cos\theta\right)^{2}}{a^{2}}\cdot\left(\begin{array}{ccc}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & \frac{1}{\sinh^{2}\eta}
+\end{array}\right)^{\alpha\beta}\label{eq:TorInvMetric}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Chrisoffel symbols
+\end_layout
+
+\begin_layout Standard
+It would seem I also need them.
+ Definition:
+\begin_inset Formula 
+\[
+\bar{\Gamma}_{\alpha\beta}^{\mu}=\frac{1}{2}\cdot\bar{g}^{\mu\kappa}\cdot\left(\bar{\partial}_{\alpha}\bar{g}_{\kappa\beta}+\bar{\partial}_{\beta}\bar{g}_{\alpha\kappa}-\bar{\partial}_{\kappa}\bar{g}_{\alpha\beta}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I could not bring myself to work it out manually, so here is the Mathematica
+ result:
+\begin_inset Formula 
+\begin{flalign}
+\Gamma_{\dots,\,\dots}^{1}=\Gamma_{\dots,\,\dots}^{\eta}= & \left(\begin{array}{ccc}
+\frac{\sinh\eta}{\cos\theta-\cosh\eta} & \frac{\sin\theta}{\cos\theta-\cosh\eta} & 0\\
+\frac{\sin\theta}{\cos\theta-\cosh\eta} & \frac{-\sinh\eta}{\cos\theta-\cosh\eta} & 0\\
+0 & 0 & \frac{\left(1-\cos\theta\cosh\eta\right)\sinh\eta}{\cos\theta-\cosh\eta}
+\end{array}\right)\label{eq:EtaChristoffel}\\
+\Gamma_{\dots,\,\dots}^{2}=\Gamma_{\dots,\,\dots}^{\theta}= & \left(\begin{array}{ccc}
+\frac{-\sin\theta}{\cos\theta-\cosh\eta} & \frac{\sinh\eta}{\cos\theta-\cosh\eta} & 0\\
+\frac{\sinh\eta}{\cos\theta-\cosh\eta} & \frac{\sin\theta}{\cos\theta-\cosh\eta} & 0\\
+0 & 0 & \frac{-\sin\theta\sinh^{2}\eta}{\cos\theta-\cosh\eta}
+\end{array}\right)\label{eq:ThetaChristoffel}\\
+\Gamma_{\dots,\,\dots}^{3}=\Gamma_{\dots,\,\dots}^{\phi}= & \left(\begin{array}{ccc}
+0 & 0 & \frac{\left(\cos\theta\cosh\eta-1\right)}{\left(\cos\theta-\cosh\eta\right)\sinh\eta}\\
+0 & 0 & \frac{\sin\theta}{\cos\theta-\cosh\eta}\\
+\frac{\left(\cos\theta\cosh\eta-1\right)}{\left(\cos\theta-\cosh\eta\right)\sinh\eta} & \frac{\sin\theta}{\cos\theta-\cosh\eta} & 0
+\end{array}\right)\label{eq:PhiChristoffel}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Position vector
+\end_layout
+
+\begin_layout Standard
+It follows that the radius squared is
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Note that Mathematica supports toroidal coordinates, and can compute the
+ necessary associated Legendre functions.
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+r^{2}=x^{2}+y^{2}+z^{2}=a^{2}\cdot\frac{\cosh\eta+\cos\theta}{\cosh\eta-\cos\theta}\label{eq:PosVecSq}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I will also need the derivatives of 
+\begin_inset Formula $r^{2}$
+\end_inset
+
+, which I will use primitive functions:
+\begin_inset Formula 
+\begin{flalign*}
+r_{,\eta}^{2}= & \partial_{\eta}r^{2}=-2a^{2}\cdot\frac{\sinh\eta\cdot\cos\theta}{\left(\cosh\eta-\cos\theta\right)^{2}}\\
+r_{,\theta}^{2}= & \partial_{\theta}r^{2}=-2a^{2}\cdot\frac{\cosh\eta\cdot\sin\theta}{\left(\cosh\eta-\cos\theta\right)^{2}}\\
+r_{,\eta\eta}^{2}= & \partial_{\eta\eta}r^{2}=a^{2}\cdot\frac{\left(\cosh2\eta+2\cosh\eta\cos\theta-3\right)\cdot\cos\theta}{\left(\cosh\eta-\cos\theta\right)^{3}}\\
+r_{,\theta\theta}^{2}= & \partial_{\theta\theta}r^{2}=2a^{2}\cdot\frac{\cosh\eta\cdot\left(\sin^{2}\theta+1-\cosh\eta\cos\theta\right)}{\left(\cosh\eta-\cos\theta\right)^{3}}\\
+r_{,\eta\theta}^{2}= & \partial_{\eta\theta}r^{2}=2a^{2}\cdot\frac{\sinh\eta\cdot\left(\cosh\eta+\cos\theta\right)\cdot\sin\theta}{\left(\cosh\eta-\cos\theta\right)^{3}}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alternatively, I may go for actually keeping the radius vector in toroidal
+ basis as a fundamental function.
+ Using Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:PosVecSq"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and expressions above, and the metric from Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TorInvMetric"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) :
+\begin_inset Formula 
+\begin{flalign}
+\bar{r}^{\eta}= & \frac{1}{2}\bar{g}^{\eta\eta}r_{,\eta}^{2}=\frac{1}{2}\cdot\frac{\left(\cosh\eta-\cos\theta\right)^{2}}{a^{2}}\cdot\left(-2a^{2}\right)\cdot\frac{\sinh\eta\cdot\cos\theta}{\left(\cosh\eta-\cos\theta\right)^{2}}\nonumber \\
+\bar{r}^{\eta}= & -\sinh\eta\cdot\cos\theta\label{eq:REta}\\
+\bar{r}^{\theta}= & \frac{1}{2}\bar{g}^{\theta\theta}r_{,\theta}^{2}=\frac{1}{2}\cdot\frac{\left(\cosh\eta-\cos\theta\right)^{2}}{a^{2}}\cdot\left(-2a^{2}\right)\cdot\frac{\cosh\eta\cdot\sin\theta}{\left(\cosh\eta-\cos\theta\right)^{2}}\nonumber \\
+\bar{r}^{\theta}= & -\cosh\eta\cdot\sin\theta\label{eq:RTheta}\\
+\bar{r}^{\phi}= & 0\label{eq:RPhi}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position vector can be defined in normalized basis as (no sum implied):
+\begin_inset Formula 
+\begin{flalign}
+\vec{e}_{\alpha}.\vec{r}= & \sqrt{g_{\alpha\alpha}}\,r^{\alpha}\nonumber \\
+\vec{r}= & \left(-\frac{a\,\sinh\eta\,\cos\theta}{\cosh\eta-\cos\theta}\right)\vec{\hat{\eta}}+\left(-\frac{a\,\cosh\eta\,\sin\theta}{\cosh\eta-\cos\theta}\right)\vec{\hat{\theta}}\label{eq:NormPosVec}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also:
+\begin_inset Formula 
+\begin{flalign}
+\bar{r}_{,\alpha}^{\alpha}= & \bar{\partial}_{\alpha}\bar{r}^{\alpha}=\partial_{\eta}\left(-\sinh\eta\cdot\cos\theta\right)+\partial_{\theta}\left(-\cosh\eta\cdot\sin\theta\right)=-2\cosh\eta\cdot\cos\theta\label{eq:RPartialContract}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is also convenient to use the co-variant position vector:
+\begin_inset Formula 
+\begin{flalign}
+\bar{r}_{\alpha}= & \bar{g}_{\alpha\beta}\bar{r}^{\alpha}=\bar{\delta}_{\alpha}^{\eta}\bar{g}_{\eta\eta}\bar{r}^{\eta}+\bar{\delta}_{\alpha}^{\theta}\bar{g}_{\theta\theta}\bar{r}^{\theta}\nonumber \\
+\bar{r}_{\eta}= & \bar{g}_{\eta\eta}\bar{r}^{\eta}=\frac{a^{2}}{\left(\cosh\eta-\cos\theta\right)^{2}}\cdot\left(-\sinh\eta\cdot\cos\theta\right)=-\frac{a^{2}\cdot\sinh\eta\cdot\cos\theta}{\left(\cosh\eta-\cos\theta\right)^{2}}\label{eq:covREta}\\
+\bar{r}_{\theta}= & -\frac{a^{2}\cdot\cosh\eta\cdot\sin\theta}{\left(\cosh\eta-\cos\theta\right)^{2}}\label{eq:covRTheta}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Term 
+\begin_inset Formula $\vec{\nabla}.\vec{F}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+As soon as a replace the generic derivatives ( 
+\begin_inset Formula $\bar{\partial}_{\dots}$
+\end_inset
+
+) with actual ones in toroidal coordinates (
+\begin_inset Formula $\partial_{\eta,\,\theta,\,\phi}$
+\end_inset
+
+), I will loose the bar to avoid notation overheads.
+\end_layout
+
+\end_inset
+
+ Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:GenDelDotF"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:REta"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TorMetric"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TorMetSqrt"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TorInvMetric"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{flalign*}
+\vec{\nabla}.\vec{F}= & \vec{\nabla}.\left(\vec{r}a_{nm}^{\left(\lambda\right)}\Psi_{nm}^{\left(\lambda\right)}\right)=\frac{a_{nm}^{\left(\lambda\right)}}{\sqrt{\bar{g}}}\cdot\bar{\partial}_{\alpha}\left(\sqrt{\bar{g}}\cdot\bar{r}^{\alpha}\Psi_{nm}^{\left(\lambda\right)}\right)=\frac{a_{nm}^{\left(\lambda\right)}}{\sqrt{\bar{g}}}\cdot\left(\frac{\bar{g}_{,\alpha}}{2\sqrt{\bar{g}}}\,\bar{r}^{\alpha}\Psi_{nm}^{\left(\lambda\right)}+\sqrt{\bar{g}}\bar{r}_{,\alpha}^{\alpha}\Psi_{nm}^{\left(\lambda\right)}+\sqrt{\bar{g}}\bar{r}^{\alpha}\bar{\partial}_{\alpha}\Psi_{nm}^{\left(\lambda\right)}\right)\\
+= & a_{nm}^{\left(\lambda\right)}\cdot\left[\left(\frac{\bar{g}_{,\alpha}\bar{r}^{\alpha}}{2\bar{g}}+\bar{r}_{,\alpha}^{\alpha}\right)\cdot\Psi_{nm}^{\left(\lambda\right)}+\bar{r}^{\alpha}\bar{\partial}_{\alpha}\Psi_{nm}^{\left(\lambda\right)}\right]\\
+= & a_{nm}^{\left(\lambda\right)}\cdot\left[\left(\frac{\bar{g}_{,\alpha}\bar{r}^{\alpha}}{2\bar{g}}+\bar{r}_{,\alpha}^{\alpha}\right)\cdot\Psi_{nm}^{\left(\lambda\right)}-\sinh\eta\cdot\cos\theta\cdot\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}-\cosh\eta\cdot\sin\theta\cdot\partial_{\theta}\Psi_{nm}^{\left(\lambda\right)}\right]
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:RPartialContract"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:TorMetDeterminant"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and some simplification we find:
+\begin_inset Formula 
+\begin{flalign}
+\vec{\nabla}.\vec{F}= & a_{nm}^{\left(\lambda\right)}\cdot\left(3\cdot\Psi_{nm}^{\left(\lambda\right)}-\sinh\eta\cdot\cos\theta\cdot\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}-\cosh\eta\cdot\sin\theta\cdot\partial_{\theta}\Psi_{nm}^{\left(\lambda\right)}\right)\label{eq:DivFToro}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which agrees well with Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Need1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Angular Momentum Operator
+\end_layout
+
+\begin_layout Standard
+The best way of handling the remaining terms is to let the Mathematica do
+ the dirty work, but we need to define the angular momentum operator.
+ For the case of angular momentum mapping a scalar function into a 3d vector
+ field, we can generalize the standard definition of the angular momentum
+ as:
+\begin_inset Formula 
+\[
+\left(\vec{L}f\right)^{\alpha}=-i\,\frac{\epsilon^{\alpha\beta\gamma}}{\sqrt{g}}\,r_{\beta}\partial_{\gamma}f
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the above expression is for the natural basis, Mathematica operates
+ with normalized basis vectors, so if you want to use the agular momentum
+ in other calculations (e.g.
+ taking a curl of it), you need (no summation over 
+\begin_inset Formula $\alpha$
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{equation}
+\left(\vec{L}f\right)_{norm}^{\alpha}=\left(\vec{L}f\right)^{\alpha}\sqrt{g_{\alpha\alpha}}=-i\,\sqrt{\frac{g_{\alpha\alpha}}{g}}\epsilon^{\alpha\beta\gamma}\,r_{\beta}\partial_{\gamma}f\label{eq:NormAngMom}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The explicit expression for the angular momentum is simpler for the normalized
+ basis, so I will quote this one:
+\begin_inset Formula 
+\begin{flalign}
+\left(\vec{L}f\right)_{norm}=-i & \Biggl\{\left(-\frac{\sin\theta}{\tanh\eta}\,\partial_{\phi}f\right)\,\vec{\hat{\eta}}+\left(\cos\theta\,\partial_{\phi}f\right)\vec{\hat{\theta}}+\left(\cosh\eta\,\sin\theta\,\partial_{\eta}f-\sinh\eta\,\cos\theta\,\partial_{\theta}f\right)\vec{\hat{\phi}}\Biggr\}\label{eq:NormAngMomSpec}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Term 
+\begin_inset Formula $\vec{r}.\vec{F}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Working from:
+\begin_inset Formula 
+\begin{flalign*}
+\vec{r}.\vec{F}= & a_{nm}^{\left(\lambda\right)}\cdot r^{2}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)+c_{nm}^{\left(\lambda\right)}\cdot\vec{r}.\vec{\nabla}\times\vec{L}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)\\
+\left(\vec{r}.\vec{F}-a_{nm}^{\left(\lambda\right)}\cdot r^{2}\Psi_{nm}^{\left(\lambda\right)}\right)= & c_{nm}^{\left(\lambda\right)}\cdot\vec{r}.\vec{\nabla}\times\vec{L}\Psi_{nm}^{\left(\lambda\right)}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I can use the definition of the position vector in normalized basis from
+ Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NormPosVec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) and the definition of the normalized angular momentum of a function from
+ Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:NormAngMomSpec"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), as well as Mathematica simplification to get
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Replacing 
+\begin_inset Formula $\partial_{\phi\phi}\Psi_{nm}^{\left(\lambda\right)}=\left(im\right)^{2}\Psi_{nm}^{\left(\lambda\right)}$
+\end_inset
+
+ straight away.
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{flalign}
+\vec{r}.\vec{\nabla}\times\vec{L}\Psi_{nm}^{\left(\lambda\right)}= & \frac{i\sinh^{2}\eta}{8}\,\Biggl\{\nonumber \\
+ & +\left(\frac{-4\,\cosh\eta}{\sinh^{3}\eta}+\frac{\sinh4\eta\,\cos2\theta}{\sinh^{4}\eta}\right)\,\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}+\left(\frac{8\,\sin2\theta}{\tanh^{2}\eta}\right)\,\partial_{\theta}\Psi_{nm}^{\left(\lambda\right)}+\nonumber \\
+ & +\left(\frac{8\,\sin2\theta}{\tanh\eta}\right)\,\partial_{\eta\theta}\Psi_{nm}^{\left(\lambda\right)}+\left(-\frac{8\,\sin^{2}\theta}{\tanh^{2}\eta}\right)\,\partial_{\eta\eta}\Psi_{nm}^{\left(\lambda\right)}+\nonumber \\
+ & +\left(-8\cos^{2}\theta\right)\,\partial_{\theta\theta}\Psi_{nm}^{\left(\lambda\right)}+\frac{4}{\sinh^{4}\eta}\,\left(\cos2\theta-\cosh2\eta\right)\,\left(im\right)^{2}\Psi_{nm}^{\left(\lambda\right)}\nonumber \\
+ & \Biggr\}\label{eq:rDotCurlL}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The equation to solve for coefficient 
+\begin_inset Formula $c_{nm}^{\left(\lambda\right)}$
+\end_inset
+
+ is therefore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{flalign*}
+\left(\vec{r}.\vec{F}-a_{nm}^{\left(\lambda\right)}\cdot r^{2}\Psi_{nm}^{\left(\lambda\right)}\right)=c_{nm}^{\left(\lambda\right)}\cdot & \frac{i\sinh^{2}\eta}{8}\,\Biggl\{\\
+ & +\left(\frac{-4\,\cosh\eta}{\sinh^{3}\eta}+\frac{\sinh4\eta\,\cos2\theta}{\sinh^{4}\eta}\right)\,\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}+\left(\frac{8\,\sin2\theta}{\tanh^{2}\eta}\right)\,\partial_{\theta}\Psi_{nm}^{\left(\lambda\right)}+\\
+ & +\left(\frac{8\,\sin2\theta}{\tanh\eta}\right)\,\partial_{\eta\theta}\Psi_{nm}^{\left(\lambda\right)}+\left(-\frac{8\,\sin^{2}\theta}{\tanh^{2}\eta}\right)\,\partial_{\eta\eta}\Psi_{nm}^{\left(\lambda\right)}+\\
+ & +\left(-8\cos^{2}\theta\right)\,\partial_{\theta\theta}\Psi_{nm}^{\left(\lambda\right)}+\frac{4}{\sinh^{4}\eta}\,\left(\cos2\theta-\cosh2\eta\right)\,\left(im\right)^{2}\Psi_{nm}^{\left(\lambda\right)}\\
+ & \Biggr\}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Term 
+\begin_inset Formula $\vec{L}.\vec{F}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have:
+\begin_inset Formula 
+\begin{flalign*}
+\vec{L}.\vec{F}= & b_{nm}^{\left(\lambda\right)}\cdot L^{2}\Psi_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However in Cartersian coordinates we can establish:
+\begin_inset Formula 
+\begin{flalign*}
+L^{2}\psi= & \vec{L}.\vec{L}\psi=-i\epsilon_{\alpha\beta\gamma}r_{\beta}\partial_{\gamma}L_{\alpha}\psi\\
+= & -i\epsilon_{\beta\gamma\alpha}r_{\beta}\partial_{\gamma}L_{\alpha}\psi=-i\vec{r}.\vec{\nabla}\times\vec{L}\psi
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It follows that:
+\begin_inset Formula 
+\[
+i\vec{L}.\vec{F}=ib_{nm}^{\left(\lambda\right)}\cdot L^{2}\Psi_{nm}^{\left(\lambda\right)}=b_{nm}^{\left(\lambda\right)}\cdot\left(\vec{r}.\vec{\nabla}\times\vec{L}\Psi_{nm}^{\left(\lambda\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Which I have already computed in Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rDotCurlL"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsection
+Derivatives of the harmonics
+\end_layout
+
+\begin_layout Standard
+From previous sections it is clear that we will need to compute 
+\begin_inset Formula $\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial_{\theta}\Psi_{nm}^{\left(\lambda\right)}$
+\end_inset
+
+.
+ Lets work them out
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Luckily, since Mathematica supports these functions as 
+\family typewriter
+LegendreP(n-1/2, m, 3, z)
+\family default
+ and 
+\family typewriter
+LegendreQ[n-1/2, m, 3, z]
+\family default
+, and can differentiate using recurrence relations.
+ 
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{flalign}
+\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}= & \partial_{\eta}\left(\sqrt{\cosh\eta-\cos\theta}Z_{n-\frac{1}{2}}^{\left(\lambda\right)m}\left(\cosh\eta\right)\,\exp\left(in\theta\right)\,\exp\left(im\phi\right)\right)\nonumber \\
+= & \frac{\cosh\eta\cdot\left(\left(2n+1\right)\cos\theta-2n\cosh\eta\right)-1}{2\sinh\eta\cdot\left(\cosh\eta-\cos\theta\right)}\cdot\Psi_{nm}^{\left(\lambda\right)}+\frac{\left(n+\frac{1}{2}-m\right)\cdot\exp\left(-i\theta\right)}{\sinh\eta}\cdot\Psi_{n+1,\,m}^{\left(\lambda\right)}\label{eq:DPsi_DEta}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also:
+\begin_inset Formula 
+\begin{flalign}
+\partial_{\theta}\Psi_{nm}^{\left(\lambda\right)}= & \partial_{\theta}\left(\sqrt{\cosh\eta-\cos\theta}Z_{n-\frac{1}{2}}^{\left(\lambda\right)m}\left(\cosh\eta\right)\,\exp\left(in\theta\right)\,\exp\left(im\phi\right)\right)\nonumber \\
+= & \left(\frac{\sin\theta}{2\cdot\left(\cosh\eta-\cos\theta\right)}+in\right)\Psi_{nm}^{\left(\lambda\right)}\label{eq:DPsi_DTheta}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And:
+\begin_inset Formula 
+\begin{flalign}
+\partial_{\phi}\Psi_{nm}^{\left(\lambda\right)}= & \partial_{\phi}\left(\sqrt{\cosh\eta-\cos\theta}Z_{n-\frac{1}{2}}^{\left(\lambda\right)m}\left(\cosh\eta\right)\,\exp\left(in\theta\right)\,\exp\left(im\phi\right)\right)\nonumber \\
+= & \left(im\right)\Psi_{nm}^{\left(\lambda\right)}\label{eq:DPsi_DPhi}
+\end{flalign}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us obtain the diagonal second derivatives:
+\begin_inset Formula 
+\begin{flalign*}
+\partial_{\eta\eta}\Psi_{nm}^{\left(\lambda\right)}= & \partial_{\eta}\left(\frac{\cosh\eta\cdot\left(\left(2n+1\right)\cos\theta-2n\cosh\eta\right)-1}{2\sinh\eta\cdot\left(\cosh\eta-\cos\theta\right)}\cdot\Psi_{nm}^{\left(\lambda\right)}+\frac{\left(n+\frac{1}{2}-m\right)\cdot\exp\left(-i\theta\right)}{\sinh\eta}\cdot\Psi_{n+1,\,m}^{\left(\lambda\right)}\right)\\
+\partial_{\eta\eta}\Psi_{nm}^{\left(\lambda\right)}= & \frac{1}{16\,\sinh\eta\,\left(\cosh\eta-\cos\theta\right)^{2}}\cdot\Biggl\{\frac{-4\,\cos\theta\,\left(\left(4n^{2}+2n+1\right)\cosh2\eta+5+2n\left(7+2n\right)\right)}{\tanh\eta}+\\
+ & \quad+\frac{6\left(3+4n\left(2+n\right)\right)+\left(1+2n\right)\left(5+2n+\left(1+2n\right)\cosh2\eta\right)\cos2\theta}{\sinh\eta}+18\sinh\eta+\\
+ & \quad+8n\left(5+4n+n\cosh2\eta\right)\sinh\eta\Biggr\}\cdot\Psi_{nm}^{\left(\lambda\right)}+\\
+ & +\\
+ & +\frac{\left(2m-2n-1\right)\exp\left(-i\theta\right)}{2\sinh\eta^{2}\left(\cosh\eta-\cos\theta\right)}\cdot\Biggl\{2+n-\left(3+2n\right)\cos\theta\,\cosh\eta+\left(1+n\right)\cosh2\eta\Biggr\}\Psi_{n+1,m}^{\left(\lambda\right)}+\\
+ & +\\
+ & +\frac{\exp\left(-i2\theta\right)\left(2m-3-2n\right)\left(2m-2n-1\right)}{4\sinh^{2}\eta}\cdot\Psi_{n+2,m}^{\left(\lambda\right)}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the other one:
+\begin_inset Formula 
+\begin{flalign*}
+\partial_{\theta\theta}\Psi_{nm}^{\left(\lambda\right)}= & \partial_{\theta}\left(\left(\frac{\sin\theta}{2\cdot\left(\cosh\eta-\cos\theta\right)}+in\right)\Psi_{nm}^{\left(\lambda\right)}\right)\\
+\partial_{\theta\theta}\Psi_{nm}^{\left(\lambda\right)}= & \frac{1}{4\left(\cosh\eta-\cos\theta\right)^{2}}\cdot\Biggl\{2\left(\cosh\eta-\cos\theta\right)\left(\cos\theta-2n^{2}\left(\cosh\eta-\cos\theta\right)\right)+\\
+ & \quad+i4n\left(\cosh\eta-\cos\theta\right)\sin\theta-\sin^{2}\theta\Biggr\}\cdot\Psi_{nm}^{\left(\lambda\right)}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The off-diagonal one:
+\begin_inset Formula 
+\begin{flalign*}
+\partial_{\eta\theta}\Psi_{nm}^{\left(\lambda\right)}= & \partial_{\eta}\left(\left(\frac{\sin\theta}{2\cdot\left(\cosh\eta-\cos\theta\right)}+in\right)\Psi_{nm}^{\left(\lambda\right)}\right)\\
+= & \left(-\frac{\sin\theta\cdot\sinh\eta}{2\left(\cosh\eta-\cos\theta\right)^{2}}\right)\cdot\Psi_{nm}^{\left(\lambda\right)}+\left(\frac{\sin\theta}{2\cdot\left(\cosh\eta-\cos\theta\right)}+in\right)\partial_{\eta}\Psi_{nm}^{\left(\lambda\right)}
+\end{flalign*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Getting out the constants
+\end_layout
+
+\begin_layout Standard
+Once a suitable analytic expression has been found, for all the terms in
+ Eq.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Need1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Need4"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), we have a generic problem like this:
+\begin_inset Formula 
+\[
+h\left(\vec{r}\right)=q_{nm}^{\left(\lambda\right)}Q_{nm}^{\left(\lambda\right)}\left(\vec{r}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where we need the constants 
+\begin_inset Formula $q_{nm}^{\left(\lambda\right)}$
+\end_inset
+
+.
+ It makes sence to convert the problem into a matrix form:
+\begin_inset Formula 
+\[
+h_{ijk}=Q_{ijk,\lambda nm}q_{\lambda nm}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We then contract it with a suitable tensor, e.g.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Clearly the choice of tensor to contract with, will be important, but lets
+ keep it simple for now.
+ I will stick in density 
+\begin_inset Formula $\left(\sqrt{\bar{g}}\right)$
+\end_inset
+
+ to approximate an integral - this works well if we start on a uniform Cartesian
+ lattice.
+\end_layout
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left(\sqrt{\bar{g}}\Psi\right)_{\bar{\lambda}\bar{n}\bar{m},ijk}^{*}Q_{ijk,\lambda nm}q_{\lambda nm}=\left(\sqrt{\bar{g}}\Psi\right)_{\bar{\lambda}\bar{n}\bar{m},ijk}^{*}h_{ijk}=\Lambda_{\bar{\lambda}\bar{n}\bar{m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can calculate:
+\begin_inset Formula 
+\[
+M_{\bar{\lambda}\bar{n}\bar{m},\lambda nm}=\left(\sqrt{\bar{g}}\Psi\right)_{\bar{\lambda}\bar{n}\bar{m},ijk}^{*}Q_{ijk,\lambda nm}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, all we need to do is solve the tensor equation:
+\begin_inset Formula 
+\[
+M_{\bar{\lambda}\bar{n}\bar{m},\lambda nm}q_{\lambda nm}=\Lambda_{\bar{\lambda}\bar{n}\bar{m}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "ToroHarmBib"
+options "IEEEtran"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

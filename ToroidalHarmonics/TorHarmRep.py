@@ -69,7 +69,8 @@ class TorHarmRep:
 
         ######### get the a^P and a^Q coefficients for each NM
         # get the necessary P, Q, functions
-        with DTORH() as dtorh: (self.pCube, self.qCube) = dtorh.GetCubeNMZ(thetaCounts, phiCounts, np.cosh(etaRange), self.torhMode)
+        with DTORH() as dtorh: (self.pCube, self.qCube) = \
+            dtorh.GetCubeNMZ(thetaCounts, phiCounts, np.cosh(etaRange), self.torhMode)
 
         # now compute the NM-matricies to find the coefficients
         d1Mat = np.sum( self.pCube * self.pCube, axis=2)

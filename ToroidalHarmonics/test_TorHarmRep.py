@@ -5,19 +5,20 @@ import unittest
 from TorHarmRep import TorHarmRep
 import numpy as np
 from DTORH import DTORH
+import numpy.random as npr
 
 class TestTorHarmRep(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)# initialize parent class
         # prepare testing variables
-        self.thetaCounts = 9
-        self.phiCounts = 15
+        self.thetaCounts = 14
+        self.phiCounts = 25
         self.etaRange = np.array((1.5, 2.0, 2.5), dtype=np.float)
         #from
         self.torCoordRep=np.zeros( (self.thetaCounts, self.phiCounts, len(self.etaRange) ), dtype=np.complex)
 
         # numerical precision for tests
-        self.tiny = 1.0e-6
+        self.tiny = 1.0e-5
 
     # test inputs
     def test_InputSanity(self):
@@ -53,14 +54,14 @@ class TestTorHarmRep(unittest.TestCase):
 
     # generate a candidate for decomposition and show that decomposition works
     def test_Decomposition(self):
-        n = 5
-        m = 7
+        n = 4
+        m = 5
 
 
         #generate inputs
         with DTORH() as dtorh: (plVec, qlVec) = dtorh.FixedM(np.cosh(self.etaRange), m, n)
 
-        aP = np.array(1.3, dtype=np.complex)
+        aP = np.array(10.8, dtype=np.complex)
         aQ = np.array(4.8, dtype=np.complex)
 
         # prep NM
